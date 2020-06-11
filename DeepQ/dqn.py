@@ -5,6 +5,7 @@ from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import load_model
 
+
 # Experience replay
 class ReplayBuffer():
     def __init__(self, mem_size, input_dims):

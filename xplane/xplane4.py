@@ -189,7 +189,7 @@ def ex4():
         ctrl = [0.0, 0.0, 0.0, 0.8]
         client.sendCTRL(ctrl)
 
-        client.sendUDP("sim/operation/quit", 1.0)
+        # client.sendUDP("sim/operation/quit", 1.0)
 
 
 
@@ -197,4 +197,3 @@ if __name__ == "__main__":
     # ex()
     # ex2()
     # ex3()
-    ex4()
