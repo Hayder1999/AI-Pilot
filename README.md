@@ -1,4 +1,4 @@
-# Minor-AI-2019_2020 > Autopilot
+# AI Pilot
 
 ## Table of contents
 
