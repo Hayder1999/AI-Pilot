@@ -1,4 +1,4 @@
-# Minor-AI-2019_2020 > Autopilot
+# AI Pilot
 
 ## Table of contents
 
@@ -40,8 +40,3 @@ Check the required dependencies which are at the top of the file, before running
 
 ~~In order to stop running, simply press 'esc' while the terminal is selected.~~
 
-# 3. Additional info
-In the X-plane_instuctions folder are a couple of files that will be useful for reading/writing data from/to X-Plane
-
-# 4. Currently active
-View the 'todo' file in the xplane folder for the following steps
