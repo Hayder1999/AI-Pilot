@@ -231,7 +231,7 @@ class XPlaneConnect(object):
 
             Args:
               values: The control surface values to set. `values` is a array containing up to
-                6 elements. If less than 6 elements are specified or any elment is set to `-998`,
+                7 elements. If less than 7 elements are specified or any elment is set to `-998`,
                 those values will not be changed. The elements in `values` corespond to the
                 following:
                   * Latitudinal Stick [-1,1]

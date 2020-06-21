@@ -62,7 +62,7 @@ class Agent():
         self.batch_size = batch_size
         self.model_file = file_name
         self.memory = ReplayBuffer(mem_size, input_dims)
-        self.q_eval = DeepQ_model(learning_rate,n_actions,input_dims, 400, 300)
+        self.q_eval = DeepQ_model(learning_rate,n_actions,input_dims, 50, 30)
 
     def store_transition(self, state, action, reward, new_state, done):
         self.memory.store_transition(state, action, reward, new_state, done)
