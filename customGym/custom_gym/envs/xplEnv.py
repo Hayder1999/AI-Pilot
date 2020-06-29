@@ -66,8 +66,12 @@ class XPL(gym.Env):
             # Gives the simulator enough time to reload
             time.sleep(3)
             # Get observation
-            obs = observation()
-            time.sleep(3)
+            obs_incomplete = observation()
+            # time.sleep(3)
+            # Add the waypoint as input aswell
+            current_waypoint = np.array(self.current_waypoint)
+            obs = np.append(obs_incomplete,current_waypoint)
+            print(obs.shape)
             return obs
         
         
@@ -99,10 +103,12 @@ class XPL(gym.Env):
     def step(self, action):
         # Perform action
         perform_action(action)
-        time.sleep(4)
+        time.sleep(2)
         # Get obeservation
-        new_observation = observation()
-        time.sleep(3)
+        current_waypoint = np.array(self.current_waypoint)
+        obs_incomplete = observation()
+        new_observation = np.append(obs_incomplete,current_waypoint)
+        # time.sleep(3)
         # Initialize variables for reward
         reward = 0
         plane_lat = new_observation[0]
@@ -140,5 +146,3 @@ class XPL(gym.Env):
         # return new_observation, reward, done
         return new_observation, reward, done
     
-               
-            

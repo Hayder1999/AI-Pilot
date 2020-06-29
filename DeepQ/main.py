@@ -9,14 +9,14 @@ def main():
     gym_env = gym.make('custom_gym:Xplane-v0')
     lr = 0.001
     gam = 0.01
-    n_games = 1
-    nn_input = obs()
+    n_games = 500
+    # nn_input = obs()
     agent = Agent(learning_rate=lr, gamma=gam, epsilon=1.0, 
-        input_dims= nn_input.shape, n_actions=15, batch_size=70, file_name='saved_models/dq_model_1.h5')
+        input_dims= (6,), n_actions=15, batch_size=32, file_name='saved_models/dq_model_2.h5')
     scores = []
     total_steps = []
     eps_hist = []
-    agent.load_model()
+    # agent.load_model()
     
     for i in range(n_games):
         try:
@@ -34,7 +34,7 @@ def main():
                 score = score + reward
                 agent.store_transition(observation, action, reward, new_observation, done)
                 observation = new_observation
-                # agent.learn()
+                agent.learn()
                 # This if statement checks if the airplane is stuck 
                 observation_checkpoints = np.append(observation_checkpoints, [new_observation[0:2]], axis=0)
                 print(observation_checkpoints)
@@ -47,7 +47,7 @@ def main():
             total_steps.append(step_counter)
         except Exception as e:
             print(str(e))
-    # agent.save_model()
+    agent.save_model()
     print(scores)
     
 main()

@@ -22,7 +22,7 @@ def get_waypoints():
         latitude = point['lat']
         longitude = point['lon']
         altitude = point['alt']
-        wp.append([latitude,longitude,altitude])
+        wp.append(np.array([latitude,longitude,altitude]))
     return wp
 
 def set_waypoint(waypoint):
@@ -57,7 +57,7 @@ def check_route():
             longitude = points['lon']
             altitude = points['alt']
             time.sleep(1)
-            client.sendWYPT(1,[latitude,longitude,altitude])
+            client.sendWYPT(1,np.array([latitude,longitude,altitude]))
         
 
 def reset_wp():
@@ -137,9 +137,9 @@ def calc_alt(alt1, alt2):
 
 def check_goal_reached(plane_lat, plane_lon, plane_alt):
     # Setting goal
-    final_lat = 52.44014358520508
-    final_lon = 4.731904983520508
-    final_alt = 3304.517333984375
+    final_lat = 52.44014358
+    final_lon = 4.73190498
+    final_alt = 3304.51733398
 
     # Extracting the necessary observation values: lat, lon and alt
     current_lat = plane_lat 
@@ -223,9 +223,6 @@ def test_():
         print(val[0])
         arr = np.array([val[0]], dtype='c16')
         print(arr)
-        
-
-
-test_()
+    
 
     

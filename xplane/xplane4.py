@@ -193,7 +193,7 @@ def ex4():
 
 
 
-if __name__ == "__main__":
-    # ex()
-    # ex2()
-    # ex3()
+# if __name__ == "__main__":
+#     ex()
+#     ex2()
+#     ex3()
