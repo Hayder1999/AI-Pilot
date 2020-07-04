@@ -1,7 +1,8 @@
 import gym
 import numpy as np
-from custom_gym.envs.myxpc.utils import observation as obs ,draw_graph
+from custom_gym.envs.myxpc.utils import observation as obs
 from dqn import Agent
+from custom_gym.envs.myxpc.visualization.graph import check_fuel, check_time
 import time
 
 
@@ -9,14 +10,14 @@ def main():
     gym_env = gym.make('custom_gym:Xplane-v0')
     lr = 0.001
     gam = 0.01
-    n_games = 500
+    n_games = 1
     # nn_input = obs()
     agent = Agent(learning_rate=lr, gamma=gam, epsilon=1.0, 
         input_dims= (6,), n_actions=15, batch_size=32, file_name='saved_models/dq_model_2.h5')
     scores = []
     total_steps = []
     eps_hist = []
-    # agent.load_model()
+    agent.load_model()
     
     for i in range(n_games):
         try:
@@ -34,7 +35,7 @@ def main():
                 score = score + reward
                 agent.store_transition(observation, action, reward, new_observation, done)
                 observation = new_observation
-                agent.learn()
+                # agent.learn()
                 # This if statement checks if the airplane is stuck 
                 observation_checkpoints = np.append(observation_checkpoints, [new_observation[0:2]], axis=0)
                 print(observation_checkpoints)
@@ -47,8 +48,10 @@ def main():
             total_steps.append(step_counter)
         except Exception as e:
             print(str(e))
-    agent.save_model()
-    print(scores)
+    # agent.save_model()
+    check_time()
+    check_fuel()
+    # print(scores)
     
 main()
 

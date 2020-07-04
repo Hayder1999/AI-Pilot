@@ -203,10 +203,6 @@ def perform_action(index):
     # Perform action
     chosen_action()
 
-def draw_graph(episode, steps, reward):
-    plt.figure(episode,steps)
-    plt.savefig('DQN_model_vis.png')
-
 
 def test_():
     with xpc.XPlaneConnect() as client:
